@@ -35,15 +35,23 @@ const POSTS = [
 export default function PostListScreen({ navigation }: Props) {
   function renderItem({ item }: { item: (typeof POSTS)[number] }) {
     return (
-      <>
-        {/* Replace this with your code here for each item to render (Use Pressable Component) */}
-      </>
+      <Pressable
+        style={({ pressed }) => [styles.item, pressed && styles.itemPressed]}
+        onPress={() => navigation.navigate('PostDetail', { postId: item.id, title: item.title, content: item.content })}
+      >
+        <Text style={styles.title}>{item.title}</Text>
+      </Pressable>
     );
   }
 
   return (
     <View style={styles.container}>
-      {/* Replace this with your code to render the list of items */}
+      <FlatList
+        data={POSTS}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+        contentContainerStyle={styles.list}
+      />
     </View>
   );
 }
@@ -51,6 +59,7 @@ export default function PostListScreen({ navigation }: Props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#fff',
   },
   list: {
     padding: 16,
@@ -59,10 +68,14 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 16,
     borderRadius: 8,
-    marginBottom: 12,
-    backgroundColor: "rgba(0,0,0,0.03)",
+    marginBottom: 8,
+    backgroundColor: '#f0f0f0',
   },
   itemPressed: {
     opacity: 0.7,
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: '500',
   },
 });

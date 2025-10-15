@@ -11,16 +11,21 @@ const Tab = createBottomTabNavigator();
 
 function CourseStack() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerTintColor: '#b39ddb',
+        headerTitleStyle: { color: '#b39ddb', fontWeight: 'bold' },
+      }}
+    >
       <Stack.Screen
         name="CourseList"
         component={CourseListScreen}
-        options={{ title: 'All Courses' }}
+        options={{ title: 'All Courses', headerTitleStyle: { color: '#b39ddb', fontWeight: 'bold' } }}
       />
       <Stack.Screen
         name="CourseDetail"
         component={CourseDetailScreen}
-        options={({ route }) => ({ title: route.params.title })}
+        options={({ route }) => ({ title: route.params.title, headerTitleStyle: { color: '#b39ddb', fontWeight: 'bold' } })}
       />
     </Stack.Navigator>
   );
@@ -30,8 +35,9 @@ export default function CoursesLayout() {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarActiveTintColor: '#0066cc',
-        tabBarInactiveTintColor: '#999',
+        tabBarActiveTintColor: '#b39ddb',
+        tabBarInactiveTintColor: '#b39ddb',
+        tabBarLabelStyle: { color: '#b39ddb', fontWeight: 'bold' },
       }}
     >
       <Tab.Screen
@@ -39,7 +45,7 @@ export default function CoursesLayout() {
         component={CourseStack}
         options={{
           tabBarLabel: 'All Courses',
-          tabBarIcon: () => <Text>📚</Text>
+          tabBarIcon: () => <Text style={{ color: '#b39ddb' }}>📚</Text>
         }}
       />
       <Tab.Screen
@@ -47,7 +53,7 @@ export default function CoursesLayout() {
         component={WishlistScreen}
         options={{
           tabBarLabel: 'My Wishlist',
-          tabBarIcon: () => <Text>💖</Text>
+          tabBarIcon: () => <Text style={{ color: '#b39ddb' }}>💖</Text>
         }}
       />
     </Tab.Navigator>

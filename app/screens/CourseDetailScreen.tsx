@@ -20,7 +20,7 @@ export default function CourseDetailScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#b39ddb',
   },
   content: {
     padding: 16,
@@ -29,9 +29,11 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 8,
+    color: '#fff',
   },
   desc: {
     fontSize: 16,
     lineHeight: 24,
+    color: '#fff',
   },
 });

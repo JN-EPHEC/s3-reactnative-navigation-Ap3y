@@ -7,7 +7,11 @@ const Stack = createNativeStackNavigator();
 
 export default function ShopLayout() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerTintColor: '#b39ddb',
+      }}
+    >
       <Stack.Screen
         name="ProductList"
         component={ProductListScreen}

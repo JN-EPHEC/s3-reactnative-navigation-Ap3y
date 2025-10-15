@@ -8,7 +8,12 @@ const Drawer = createDrawerNavigator();
 
 export default function DrawerLayout() {
   return (
-    <Drawer.Navigator initialRouteName="Courses">
+    <Drawer.Navigator
+      initialRouteName="Courses"
+      screenOptions={{
+        headerTintColor: '#b39ddb',
+      }}
+    >
       <Drawer.Screen
         name="Courses"
         component={CoursesLayout}
